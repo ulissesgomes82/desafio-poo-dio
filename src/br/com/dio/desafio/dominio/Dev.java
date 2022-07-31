@@ -66,10 +66,19 @@ public class Dev {
 		return conteudoInscrito.stream().mapToDouble(Conteudo::calcularXP).sum();
 	}
 
-	public void exibirCursos() {
-		for (Conteudo conteudo : conteudoInscrito) {
-			System.out.println(conteudo);
-		}
-	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Nome do Dev: " + nome + "\n\n");
+		sb.append("Conteudo inscrito:\n");
+		for (Conteudo conteudo1 : conteudoInscrito) {
+			sb.append(conteudo1 + "\n");
+		}
+		sb.append("Conteudo concluidos:\n");
+		for (Conteudo conteudo2 : conteudoConcluido) {
+			sb.append(conteudo2);
+		}
+		return sb.toString();
+	}
 }

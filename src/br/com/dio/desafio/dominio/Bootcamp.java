@@ -1,6 +1,7 @@
 package br.com.dio.desafio.dominio;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -64,5 +65,24 @@ public class Bootcamp {
 
 	public void removeConteudo(Conteudo conteudo) {
 		conteudos.remove(conteudo);
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Bootcamp: " + nome + "\n");
+		sb.append("Descrição do Bootcamp: " + descricao + "\n");
+		sb.append("Data Inicil: " + dataInicial.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n");
+		sb.append("Data Final: " + dataFinal.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n\n");
+		sb.append("Lista de conteúdo:\n" );
+		
+		for (Conteudo conteudo : conteudos) {
+			sb.append(conteudo + "\n");
+		}
+		sb.append("Lista de Devs:\n" );
+		for (Dev dev : devs) {
+			sb.append(dev + "\n");
+		}
+		return sb.toString();
 	}
 }
