@@ -1,4 +1,4 @@
-package application;
+package br.com.dio.desafio;
 
 import java.util.Locale;
 import java.util.Scanner;
