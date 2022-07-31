@@ -1,6 +1,7 @@
 package br.com.dio.desafio.dominio;
 
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -27,6 +28,24 @@ public class Dev {
 
 	public Set<Conteudo> getConteudoConcluido() {
 		return conteudoConcluido;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(conteudoConcluido, conteudoInscrito, nome);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Dev other = (Dev) obj;
+		return Objects.equals(conteudoConcluido, other.conteudoConcluido)
+				&& Objects.equals(conteudoInscrito, other.conteudoInscrito) && Objects.equals(nome, other.nome);
 	}
 
 	public void inscrever(Bootcamp bootcamp) {
